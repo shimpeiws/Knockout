@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+   <html lang="en">
+      <head>
+         <meta charset="utf-8">
+         <title>Hello world</title>
+         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+         <script type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.0.0.js'></script>
+          <script type="text/javascript" src="js/better_list.js"></script>
+      </head>
+      <body>
+         <form data-bind="submit:addItem">
+            Add item: <input type="text" data-bind='value:itemToAdd, valueUpdate: "afterkeydown"' />
+            <button type="submit" data-bind="enable: itemToAdd().length > 0">Add</button>
+        </form>
+         
+        <p>Your values:</p>
+        <select multiple="multiple" height="5" data-bind="options:allItems, selectedOptions:selectedItems"> </select>
+         
+        <div>
+            <button data-bind="click: removeSelected, enable: selectedItems().length > 0">Remove</button>
+            <button data-bind="click: sortItems, enable: allItems().length > 1">Sort</button>
+        </div>
+      </body>
+</html>
