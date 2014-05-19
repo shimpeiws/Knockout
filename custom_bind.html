@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+   <html lang="en">
+      <head>
+         <meta charset="utf-8">
+         <title>Hello world</title>
+         <link rel="stylesheet" type="text/css" href="css/main.css" media="all">
+         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+         <script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js'></script>
+          <script type="text/javascript" src="js/custom_bind.js"></script>
+      </head>
+      <body>
+      <div data-bind="slideVisible: giftWrap, slideDuration:600">You have selected the option</div>
+<label><input type="checkbox" data-bind="checked: giftWrap" /> Gift wrap</label>
+ 
+<script type="text/javascript">
+    var viewModel = {
+        giftWrap: ko.observable(true)
+    };
+    ko.applyBindings(viewModel);
+</script>
+      </body>
+</html>
