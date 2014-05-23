@@ -44,7 +44,7 @@ $ ->
         )
       return
       
-    # 編集中かどうかの(Enter押下時のため)
+    # 入力済みアイテムの編集モードon/off切り替え
     self.toggleEditMode = (item, event) ->
       $(event.target).closest('li').toggleClass('editing')
     
