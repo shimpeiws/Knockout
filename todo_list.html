@@ -11,7 +11,7 @@
       <body>
       <div id="todoapp">
           <header>
-            <h1>Todos by Knockout.js</h1>
+            <h1><span data-bind="text: page_title"></span></h1>
             <input id="new-todo" type="text" placeholder="What needs to be done?" data-bind="value:inputTitle,event: { keyup: createOnEnter}"/>
           </header>
 

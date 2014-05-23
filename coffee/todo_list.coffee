@@ -14,7 +14,6 @@ $ ->
   # ViewModel
   viewModel = ->
     self = this
-    # HTML側でUpCaseできないので、ここは大文字
     self.page_title = 'TODOS by Knockout.js'
     self.todos = ko.observableArray([])
     self.inputTitle = ko.observable("")
