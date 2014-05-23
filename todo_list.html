@@ -19,6 +19,7 @@
             <div data-bind="visible:todos().length>0">
                 <input id="toggle-all" type="checkbox" data-bind="checked:markAll"/>
                 <label for="toggle-all">Mark all as complete</label>
+                <button data-bind="click: sortItems">Sort</button>
             </div>
             <ul id="todo-list" data-bind="template:{ name:'item-template',foreach: todos}">
             </ul>

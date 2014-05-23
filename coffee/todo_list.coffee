@@ -35,6 +35,14 @@ $ ->
       else
         return true
       return
+    
+    # TODO : ボタン押しても  すぐに反応しない、templateを使っているからか?
+    self.sortItems = (item, event) ->
+      self.todos().sort( (left, right) ->
+          retVal = if left.title() < right.title() then -1 else 1
+          return retVal
+        )
+      return
       
     # 編集中かどうかの(Enter押下時のため)
     self.toggleEditMode = (item, event) ->
@@ -48,8 +56,9 @@ $ ->
         return true
       return
       
+    # 自身でsubscriptionsを作る
     self.markAll.subscribe((newValue) ->
-        ko.utils.arrayForEach(self.todos(), (it) ->
+        ko.utils.arrayForEach(self.todos(), (item) ->
             item.done(newValue)
             return
         )
@@ -57,8 +66,8 @@ $ ->
       )
     
     self.countUpdate = (item) ->
-      doneArray = ko.utils.arrayFilter(self.todos(), (it) ->
-          it.done()
+      doneArray = ko.utils.arrayFilter(self.todos(), (item) ->
+          item.done()
         )
         self.doneTodos(doneArray.length)
         return true

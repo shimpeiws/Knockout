@@ -34,6 +34,13 @@
           return true;
         }
       };
+      self.sortItems = function(item, event) {
+        self.todos().sort(function(left, right) {
+          var retVal;
+          retVal = left.title() < right.title() ? -1 : 1;
+          return retVal;
+        });
+      };
       self.toggleEditMode = function(item, event) {
         return $(event.target).closest('li').toggleClass('editing');
       };
@@ -46,14 +53,14 @@
         }
       };
       self.markAll.subscribe(function(newValue) {
-        ko.utils.arrayForEach(self.todos(), function(it) {
+        ko.utils.arrayForEach(self.todos(), function(item) {
           item.done(newValue);
         });
       });
       self.countUpdate = function(item) {
         var doneArray;
-        doneArray = ko.utils.arrayFilter(self.todos(), function(it) {
-          return it.done();
+        doneArray = ko.utils.arrayFilter(self.todos(), function(item) {
+          return item.done();
         });
         self.doneTodos(doneArray.length);
         return true;
